@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Game</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; padding: 20px;  }
+    .container {
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      width:30vw; 
+      height: 50vh; 
+      align-items: center;
+      align-content: center; 
+      background-color: darkolivegreen;}
+    .play { text-align: center; width: 80%; height: 40%; margin: auto; padding: 20px; background-color: rgb(211, 232, 175);}
+    .result {text-align: center; width: 80%; height: 15%; margin: auto; padding: 20px; background-color: rgb(211, 232, 175);}
+    .dice { font-size: 2rem; margin: 10px 0; }
+    #message {font-size: 30px;}
+    button { padding: 10px 20px; font-size: 1rem; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+<div class="play">
+    <h1>🎲 Dice Game</h1>
+    <p>Do you want to play dice?</p>
+    <button onclick="playDice()">Yes</button>
+    <button onclick="endGame()">No</button>
+    </div>
+    <div class="result">
+
+    <div class="dice" id="result"></div>
+    <div id="message"></div>
+    </div>
+  </div>
+
+
+  <script>
+    function getRandomDice() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function playDice() {
+      const die1 = getRandomDice();
+      const die2 = getRandomDice();
+      document.getElementById('result').textContent = `You got: (${die1}, ${die2})`;
+      document.getElementById('message').textContent = '';
+    }
+
+    function endGame() {
+      document.getElementById('message').textContent = 'Thank you for playing!';
+      document.getElementById('result').textContent = '';
+    }
+  </script>
+</body>
+</html>
